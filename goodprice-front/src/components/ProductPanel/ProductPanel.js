@@ -3,9 +3,10 @@ import {
     Container
 } from 'react-bootstrap';
 import ProductItems from './components/ProductItems/ProductItems';
+import './ProductPanel.scss';
 
 const ProductPanel = () => (
-    <Container>
+    <Container className="product-panel">
         <ProductItems />
     </Container>
 );

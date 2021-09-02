@@ -1,33 +1,25 @@
 import React from 'react';
 import {
     Nav,
-    NavDropdown,
+    Form,
+    FormControl,
+    Button
 } from 'react-bootstrap';
+import Dropdowns from './components/Dropdowns/Dropdowns';
+import './SearchBar.scss';
 
 const SearchBar = () => (
-    <Nav variant="pills" activeKey="1">
-        <Nav.Item>
-            <Nav.Link eventKey="1" href="#/home">
-            NavLink 1 content
-            </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-            <Nav.Link eventKey="2" title="Item">
-            NavLink 2 content
-            </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-            <Nav.Link eventKey="3" disabled>
-            NavLink 3 content
-            </Nav.Link>
-        </Nav.Item>
-        <NavDropdown title="Dropdown" id="nav-dropdown">
-            <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-            <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-            <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
-        </NavDropdown>
+    <Nav variant="pills" className="search">
+        <Dropdowns />
+        <Form className="d-flex search__form">
+            <FormControl
+                type="search"
+                placeholder="Search products"
+                className="mr-4"
+                aria-label="Search"
+            />
+            <Button variant="outline-dark">Search</Button>
+        </Form>
     </Nav>
 );
 

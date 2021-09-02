@@ -1,12 +1,14 @@
 .content {
-    border: 2px solid black;
     display: flex;
+    padding: 0;
+    margin-top: 20px;
 }
 
 .filter-vertical {
+    width: 400px;
     border: 2px solid blue;
 }
 
 .searchbar-horizontal {
-    border: 2px solid red;
+    padding: 0;
 }
