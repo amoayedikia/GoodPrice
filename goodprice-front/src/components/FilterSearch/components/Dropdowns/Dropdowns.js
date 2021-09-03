@@ -8,10 +8,9 @@ const Dropdowns = () => {
     const handleSelect = (e) => {
         setValue(e);
     }
-    console.log(value);
 
     return (
-        <>
+        <div className="dropdownbar">
             <DropdownButton variant="light" title="SORT PRODUCTS BY" id="dropdown-basic-button" border-color="primary" onSelect={handleSelect}>
                 <Dropdown.Item eventKey="Relevancy">Relevancy</Dropdown.Item>
                 <Dropdown.Item eventKey="Price: Low - High">Price: Low - High</Dropdown.Item>
@@ -22,7 +21,7 @@ const Dropdowns = () => {
                 <Dropdown.Item eventKey="Title: Z - A">Title: Z - A</Dropdown.Item>
             </DropdownButton>
             <div className="value" border-color="primary">{value}</div>
-        </>
+        </div>
     );
 }
 

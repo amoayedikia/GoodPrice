@@ -10,6 +10,9 @@ import './SearchBar.scss';
 
 const SearchBar = () => (
     <Nav variant="pills" className="search">
+        <div className="currentlocation">
+            Your location: Hawthorn VIC 3122
+        </div>
         <Dropdowns />
         <Form className="d-flex search__form">
             <FormControl
