@@ -7,7 +7,7 @@ import {
 import './ProductItem.scss';
 
 const ProductItem = () => (
-    <Card className="product__card">
+    <Card className="product__card" border-color="primary">
         <Card.Img variant="top" src="assets/images/bicycles.png" className="product__image" />
         <Card.Body>
             <Card.Title>Product Name</Card.Title>

@@ -1,8 +1,14 @@
 .search {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-bottom: 20px;
+
     &__form {
         margin-left: 40px;
     }
+}
+
+.currentlocation {
+    padding: 10px;
+    font-weight: bold;
 }
