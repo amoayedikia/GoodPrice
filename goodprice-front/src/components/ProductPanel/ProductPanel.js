@@ -7,7 +7,7 @@ import './ProductPanel.scss';
 
 const ProductPanel = () => (
     <Container className="product-panel">
-        <ProductItems />
+            <ProductItems />
     </Container>
 );
 
