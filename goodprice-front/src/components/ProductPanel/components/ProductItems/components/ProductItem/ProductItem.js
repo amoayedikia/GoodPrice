@@ -1,13 +1,14 @@
 import React from 'react';
 import { 
-    // Container,
+    Col,
     Card,
     Button
 } from 'react-bootstrap';
 import './ProductItem.scss';
 
 const ProductItem = () => (
-    <Card className="product__card" border-color="primary">
+    <Col lg={4} md={12}>
+    <Card className="product__card m-2" border-color="primary">
         <Card.Img variant="top" src="assets/images/bicycles.png" className="product__image" />
         <Card.Body>
             <Card.Title>Product Name</Card.Title>
@@ -20,6 +21,7 @@ const ProductItem = () => (
             <Button variant="primary" className="product__button">View Product</Button>
         </Card.Body>
     </Card>
+    </Col>
 );
 
 export default ProductItem;
