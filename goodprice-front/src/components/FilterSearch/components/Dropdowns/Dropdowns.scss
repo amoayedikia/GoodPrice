@@ -1,22 +1,26 @@
-.dropdownbar {
-    display: flex;
+.dropdown-bar {
+  display: flex;
+}
+
+#dropdown-basic-button {
+  border: 2px solid lightgray;
 }
 
 #dropdown {
-    border: 2px solid;
-    border-radius: 5px;
+  border: 2px solid;
+  border-radius: 5px;
 }
 
 .dropdown-item {
-    width: 200px;
+  width: 200px;
 }
 
 .value {
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    border: 2px solid;
-    border-radius: 5px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 2px solid;
+  border-radius: 5px;
 }
