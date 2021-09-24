@@ -8,8 +8,8 @@ import {
 import Login from './pages/Login/Login'
 import Profile from './pages/Profile/Profile'
 import Register from './pages/Register/Register'
-// import Login from './pages/Login/Login';
-import SearchPage from './pages/SearchPage/SearchPage'
+import SearchPage from './pages/SearchPage/SearchPage';
+import ProductPage from './pages/ProductPage/ProductPage';
 
 // const PrivateRoute = ({ component: Component, props, ...rest }) => (
 //   <>
@@ -46,6 +46,8 @@ const App = () => (
       <Route path='/login' component={Login} />
       <Route path='/register' component={Register} />
       <Route path='/profile' component={Profile} />
+      <Route exact path="/" component={SearchPage} />
+      <Route path="/products/product" component={ProductPage} />
     </Switch>
   </Router>
 )
