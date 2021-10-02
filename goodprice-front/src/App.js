@@ -1,12 +1,15 @@
-import React from 'react';
+import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   // Redirect,
-} from 'react-router-dom';
+} from 'react-router-dom'
+import Login from './pages/Login/Login'
+import Profile from './pages/Profile/Profile'
+import Register from './pages/Register/Register'
 // import Login from './pages/Login/Login';
-import SearchPage from './pages/SearchPage/SearchPage';
+import SearchPage from './pages/SearchPage/SearchPage'
 
 // const PrivateRoute = ({ component: Component, props, ...rest }) => (
 //   <>
@@ -39,10 +42,12 @@ import SearchPage from './pages/SearchPage/SearchPage';
 const App = () => (
   <Router>
     <Switch>
-      <Route exact path="/" component={SearchPage} />
-      {/* <Route path="/login" component={Login} /> */}
+      <Route exact path='/' component={SearchPage} />
+      <Route path='/login' component={Login} />
+      <Route path='/register' component={Register} />
+      <Route path='/profile' component={Profile} />
     </Switch>
   </Router>
-);
+)
 
-export default App;
+export default App
