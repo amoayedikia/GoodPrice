@@ -5,7 +5,7 @@ import "./ProductItem.scss";
 
 const ProductItem = () => (
   <Col lg={4} md={12}>
-    <Link to="/products/product">
+    <Link to="/products/product" className="link">
       <Card className="product__card m-2" border-color="primary">
         <Card.Img
           variant="top"
