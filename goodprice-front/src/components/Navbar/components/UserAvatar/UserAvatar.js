@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Nav, Offcanvas } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { BsPersonFill } from "react-icons/bs";
 import "./UserAvatar.scss";
 
@@ -20,7 +21,11 @@ const UserAvatar = () => {
             <Nav defaultActiveKey="/home" className="flex-column">
               <Nav.Link href="/home">Edit Profile</Nav.Link>
               <Nav.Link eventKey="link-1">Change Password</Nav.Link>
-              <Nav.Link eventKey="link-2">Sign in</Nav.Link>
+              <Nav.Link eventKey="link-2">
+                <Link to="/login" className="login">
+                  Sign in
+                </Link>
+              </Nav.Link>
             </Nav>
           </div>
         </Offcanvas.Body>
