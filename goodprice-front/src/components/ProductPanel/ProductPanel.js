@@ -1,54 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Alert } from 'react-bootstrap'
 import ProductItem from './components/ProductItem'
 //import './ProductItems.scss'
-import Loader from '../Loader/Loader'
-import {
-  addToCompareList,
-  filterProducts,
-  removeFromCompareList,
-} from '../../actions/product-actions'
 
-const ProductItems = ({ name }) => {
-  const dispatch = useDispatch()
-
+const ProductItems = ({ name, categories, accreditation, price }) => {
   const productDetails = useSelector((state) => state.productDetails)
   const {
     products: { Items },
     filteredProducts,
-    compareProducts,
-    filteredCategories,
   } = productDetails
-
-  const test = () => {
-    alert('gg')
-  }
 
   return (
     <Container className='product__container'>
       <Row>
-        {name !== '' || filteredCategories.length > 0
-          ? filteredProducts.map((i) => (
+        {name !== '' ||
+        categories.length > 0 ||
+        accreditation !== 'all' ||
+        price !== 'all' ? (
+          filteredProducts.length === 0 ? (
+            <Alert variant='danger'>
+              <Alert.Heading>NO PRODUCTS FOUND!</Alert.Heading>
+              <p>None of the Products match your search Criteria</p>
+            </Alert>
+          ) : (
+            filteredProducts.map((i) => (
               <ProductItem
                 id={i.product_id}
                 photo={i.photo_url}
                 name={i.product_name}
                 description={i.product_description}
                 price={i.product_price}
-                supplier={i.product_supplier}
+                supplier={i.supplier_name}
+                accrediation={i.accreditation}
               />
             ))
-          : Items.map((i) => (
-              <ProductItem
-                id={i.product_id}
-                photo={i.photo_url}
-                name={i.product_name}
-                description={i.product_description}
-                price={i.product_price}
-                supplier={i.product_supplier}
-              />
-            ))}
+          )
+        ) : (
+          Items.map((i) => (
+            <ProductItem
+              id={i.product_id}
+              photo={i.photo_url}
+              name={i.product_name}
+              description={i.product_description}
+              price={i.product_price}
+              supplier={i.supplier_name}
+              accreditation={i.accreditation}
+            />
+          ))
+        )}
       </Row>
     </Container>
   )

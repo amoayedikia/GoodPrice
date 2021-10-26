@@ -60,6 +60,9 @@ const productDetailReducer = (
 
     case FILTER_PRODUCTS: {
       let name = action.payload.name
+      let accreditation = action.payload.accreditation
+      let price = action.payload.price
+      let sort = action.payload.sort
 
       //Filtering products by Name
       let filteredProducts =
@@ -76,7 +79,91 @@ const productDetailReducer = (
             )
           : filteredProducts
 
-      console.log(name)
+      filteredProducts =
+        accreditation !== 'all'
+          ? filteredProducts.filter((p) => p.accreditation === accreditation)
+          : filteredProducts
+
+      switch (price) {
+        case 'all': {
+          break
+        }
+        case '100': {
+          console.log('here')
+          filteredProducts = filteredProducts.filter(
+            (p) => parseInt(p.product_price) <= 100
+          )
+          break
+        }
+        case '300': {
+          filteredProducts = filteredProducts.filter(
+            (p) =>
+              parseInt(p.product_price) > 101 &&
+              parseInt(p.product_price) <= 300
+          )
+          break
+        }
+        case '500': {
+          filteredProducts = filteredProducts.filter(
+            (p) =>
+              parseInt(p.product_price) > 301 &&
+              parseInt(p.product_price) <= 500
+          )
+          break
+        }
+        case '1000': {
+          filteredProducts = filteredProducts.filter(
+            (p) =>
+              parseInt(p.product_price) > 501 &&
+              parseInt(p.product_price) <= 1000
+          )
+          break
+        }
+        case '2000': {
+          filteredProducts = filteredProducts.filter(
+            (p) => parseInt(p.product_price) > 1000
+          )
+          break
+        }
+
+        default: {
+          break
+        }
+      }
+
+      switch (sort) {
+        case 'price_asc': {
+          filteredProducts.sort((a, b) =>
+            parseInt(a.product_price) > parseInt(b.product_price) ? 1 : -1
+          )
+          break
+        }
+
+        case 'price_desc': {
+          filteredProducts.sort((a, b) =>
+            parseInt(a.product_price) > parseInt(b.product_price) ? -1 : 1
+          )
+          break
+        }
+
+        case 'name_asc': {
+          filteredProducts.sort((a, b) =>
+            a.product_name > b.product_name ? 1 : -1
+          )
+          break
+        }
+
+        case 'name_desc': {
+          filteredProducts.sort((a, b) =>
+            a.product_name > b.product_name ? -1 : 1
+          )
+          break
+        }
+
+        default: {
+          break
+        }
+      }
 
       return {
         ...state,

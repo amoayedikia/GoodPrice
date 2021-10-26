@@ -8,7 +8,15 @@ import {
 } from '../../../actions/product-actions'
 //import './ProductItem.scss'
 
-const ProductItem = ({ name, description, price, supplier, id, photo }) => {
+const ProductItem = ({
+  name,
+  description,
+  price,
+  supplier,
+  id,
+  photo,
+  accreditation,
+}) => {
   const productDetails = useSelector((state) => state.productDetails)
   const { compareProducts } = productDetails
 
@@ -30,7 +38,7 @@ const ProductItem = ({ name, description, price, supplier, id, photo }) => {
         <Card.Img variant='top' src={`${photo}`} className='product__image' />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
-          <Card.Text>{description}</Card.Text>
+
           <hr />
           <div>
             <h3>{price} AU$</h3>
@@ -44,6 +52,15 @@ const ProductItem = ({ name, description, price, supplier, id, photo }) => {
               checked={compareProducts.includes(id)}
             />
           </Form.Group>
+          <hr />
+          {accreditation == 'yes' ? (
+            <p>
+              <i>Accredited by GoodPrice</i>
+            </p>
+          ) : (
+            <p>Not GoodPrice Accredited </p>
+          )}
+
           <div>
             <LinkContainer to={`/products/${id}`}>
               <Button variant='primary' className='product__button'>

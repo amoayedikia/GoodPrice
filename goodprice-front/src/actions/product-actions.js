@@ -46,16 +46,17 @@ export const getProductList = () => async (dispatch) => {
   }
 }
 
-export const filterProducts = (name, categories) => async (dispatch) => {
-  try {
-    dispatch({
-      type: FILTER_PRODUCTS,
-      payload: { name, categories },
-    })
-  } catch (error) {
-    console.log(error)
+export const filterProducts =
+  (name, categories, accreditation, price, sort) => async (dispatch) => {
+    try {
+      dispatch({
+        type: FILTER_PRODUCTS,
+        payload: { name, categories, accreditation, price, sort },
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
-}
 
 export const addToCompareList = (id) => async (dispatch) => {
   try {
