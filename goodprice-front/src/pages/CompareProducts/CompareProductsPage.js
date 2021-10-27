@@ -86,7 +86,16 @@ const CompareProductsPage = () => {
                 {Items.filter((i) =>
                   compareProducts.includes(i.product_id)
                 ).map((p) => (
-                  <td>{p.supplier_id} </td>
+                  <td>{p.supplier_name} </td>
+                ))}
+              </tr>
+              <tr>
+                {' '}
+                <th>Contact Supplier</th>
+                {Items.filter((i) =>
+                  compareProducts.includes(i.product_id)
+                ).map((p) => (
+                  <td><Button variant="primary">Send Message</Button></td>
                 ))}
               </tr>
             </tbody>

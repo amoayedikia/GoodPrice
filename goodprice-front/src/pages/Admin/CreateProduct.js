@@ -63,8 +63,8 @@ const CreateProduct = () => {
     ) {
       setErrorMessage('Please provide a valid value for the numerical fields')
     } else {
-      alert(typeof productId)
-      alert(typeof parseInt(productId))
+      // alert(typeof productId)
+      // alert(typeof parseInt(productId))
       dispatch(
         addProduct(
           parseInt(productId),

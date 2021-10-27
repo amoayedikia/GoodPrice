@@ -1,5 +1,4 @@
-import { BsDisplay } from 'react-icons/bs'
-import axios from '../axios-config'
+import axios from '../axios-config';
 import {
   ADD_TO_COMPARE,
   CREATE_PRODUCT_FAILURE,
@@ -16,7 +15,7 @@ import {
   GET_PRODUCT_CATEGORY_REQUEST,
   GET_PRODUCT_CATEGORY_SUCCESS,
   REMOVE_FROM_COMPARE,
-} from '../constants/product-constants'
+} from '../constants/product-constants';
 
 ///Action to get all the products from the database
 export const getProductList = () => async (dispatch) => {

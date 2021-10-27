@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
@@ -23,6 +24,7 @@ const Register = ({ history }) => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [userProfile, setUserProfile] = useState('')
   const [country, setCountry] = useState('')
+  // const history = useHistory();
 
   const [previewImage, setImagePreview] = useState(
     '/assets/images/admin/preview_placeholder.png'
@@ -60,9 +62,6 @@ const Register = ({ history }) => {
     } else if (password.length < 6) {
       setErrorMessage('Password should not be less than 6 characters')
       window.scrollTo(0, 0)
-    } else if (userProfile === '') {
-      setErrorMessage('Please select a profile image')
-      window.scrollTo(0, 0)
     } else {
       setErrorMessage('')
       const formData = new FormData()
@@ -72,13 +71,18 @@ const Register = ({ history }) => {
       formData.append('email', email)
       formData.append('contact', contact)
       formData.append('password', password)
-      formData.append('profile_image', userProfile)
+      // else if (userProfile === '') {
+      //   setErrorMessage('Please select a profile image')
+      //   window.scrollTo(0, 0)
+      // }
+      // formData.append('profile_image', userProfile)
       formData.append('date_of_birth', birthDate)
       formData.append('country', country)
       //Dispatching the Create Team Action
       // dispatch(register(formData))
       window.scrollTo(0, 0)
       resetForm()
+      history.push("/");
     }
   }
 

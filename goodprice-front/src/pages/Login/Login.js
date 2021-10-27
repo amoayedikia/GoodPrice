@@ -55,6 +55,7 @@ const Login = ({ history }) => {
       setErrorMessage('')
       //dispatch(login(email, password))
     }
+    history.push("/");
   }
 
   return (
